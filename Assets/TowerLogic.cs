@@ -5,7 +5,7 @@ using UnityEngine;
 public class TowerLogic : MonoBehaviour
 {
     public BaseScript gameManager; // Assign this in the inspector
-
+    [SerializeField] float value;
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -30,14 +30,13 @@ public class TowerLogic : MonoBehaviour
 
     bool CanPlaceTower(Vector3 position)
     {
-        Vector3 basePosition = gameManager.building.transform.position; // Use the building's position
-        return Vector3.Distance(basePosition, position) <= gameManager.placementRadius * 100; // Check the distance against placementRadius
+        Vector3 basePosition = gameManager.building.transform.position; 
+        return Vector3.Distance(basePosition, position) <= gameManager.placementRadius * value; // Check the distance against placementRadius
     }
 
     void PlaceTower(Vector3 position)
     {
         print("Can Place Tower Here");
-        // Instantiate the tower prefab at the given position
-        // Example: Instantiate(towerPrefab, position, Quaternion.identity);
+        
     }
 }

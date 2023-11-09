@@ -9,6 +9,8 @@ public class BaseScript : MonoBehaviour
     public GameObject raidusIndicator;
     public Material terrainMaterial;
     public GameObject building;
+
+    public static int credits = 300;
     // Method to increase the radius
     private void Update()
     {
