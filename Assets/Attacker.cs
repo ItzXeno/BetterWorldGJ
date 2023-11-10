@@ -56,10 +56,10 @@ public class Attacker : MonoBehaviour
 
     void RotateTowards(Vector3 target)
     {
-        Vector3 directionToTarget = (target - head.transform.position).normalized;
-        Quaternion lookRotation = Quaternion.LookRotation(directionToTarget);
-
-        head.transform.rotation = Quaternion.Slerp(head.transform.rotation, lookRotation, Time.deltaTime * turnSpeed);
+        /*Vector3 directionToTarget = target - head.transform.position;
+        Quaternion targetRotation = Quaternion.LookRotation(directionToTarget, -Vector3.right);*/
+        head.transform.LookAt(target);
+       /* head.transform.rotation = Quaternion.Slerp(head.transform.rotation, targetRotation, Time.deltaTime * turnSpeed);*/
     }
 
     void ShootAt(GameObject enemy)

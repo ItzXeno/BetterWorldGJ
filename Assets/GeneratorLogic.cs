@@ -11,9 +11,12 @@ public class GeneratorLogic : MonoBehaviour
     public float shootDownDuration = 0.5f;
     public bool isdead = false;
     private bool isMoving = false;
-    public BaseScript baseScript;
-    private void Start()
+    private BaseScript baseScript;
+    GameObject Tbase;
+    private void Awake()
     {
+        Tbase = GameObject.FindGameObjectWithTag("Base");
+        baseScript = Tbase.GetComponent<BaseScript>();
         
         baseScript.AddGeneratorRadius();
     }
