@@ -270,9 +270,10 @@ GameObject:
   - component: {fileID: 1892937588352388293}
   - component: {fileID: 1892937588352388315}
   - component: {fileID: 1892937588352388292}
+  - component: {fileID: -1858170094139186635}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -369,10 +370,23 @@ MonoBehaviour:
   playerInProximity: 8.2
   generatorProximity: 6.4
   attackRange: 8
-  agentStoppingAttackRatio: 0.8
   canAttack: 0
   attack: 0
   hand: {fileID: 0}
+--- !u!114 &-1858170094139186635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1622555239734194079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c0799a5645d00a498413938974e003d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  currentHealth: 0
 --- !u!1 &1754770867580719240
 GameObject:
   m_ObjectHideFlags: 0

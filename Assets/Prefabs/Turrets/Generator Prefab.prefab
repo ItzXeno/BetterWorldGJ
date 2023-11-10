@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7974965253135519187}
   - component: {fileID: 7974965253135519186}
+  - component: {fileID: 7568571459451212698}
   m_Layer: 0
   m_Name: Generator Prefab
   m_TagString: Untagged
@@ -53,6 +54,19 @@ MonoBehaviour:
   isdead: 0
   baseScript: {fileID: 127015639638319055, guid: 9b75c5741b615a04c8d7b372a6b2ed99,
     type: 3}
+--- !u!114 &7568571459451212698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7974965253135519189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6016ab9024e87bd4fba4837f2a1c2f74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
 --- !u!1001 &7974965253382678993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135,6 +149,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: Upwards_3_
       objectReference: {fileID: 0}
+    - target: {fileID: 3390541505857699380, guid: 6d15f877db22bfa4dad2717ea88de227,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2781410738928257789, guid: 007630f4d3b64df4590d6bd657c7dbb2,
+        type: 3}
+    - target: {fileID: 3390541505857699380, guid: 6d15f877db22bfa4dad2717ea88de227,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -9007632685173550870, guid: e859b59be75b528479a93253b37819be,
+        type: 3}
+    - target: {fileID: 5647711757200848372, guid: 6d15f877db22bfa4dad2717ea88de227,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: -9007632685173550870, guid: e859b59be75b528479a93253b37819be,
+        type: 3}
+    - target: {fileID: 5647711757200848372, guid: 6d15f877db22bfa4dad2717ea88de227,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2781410738928257789, guid: a2fa5f6e156b39b4680117637d6ca232,
+        type: 3}
+    - target: {fileID: 7293083328701902953, guid: 6d15f877db22bfa4dad2717ea88de227,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2781410738928257789, guid: 007630f4d3b64df4590d6bd657c7dbb2,
+        type: 3}
+    - target: {fileID: 7293083328701902953, guid: 6d15f877db22bfa4dad2717ea88de227,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: -3303489080311633890, guid: 19f4b38b957c83741b85cd8c22d6b52b,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d15f877db22bfa4dad2717ea88de227, type: 3}
 --- !u!4 &7576881791664410170 stripped
