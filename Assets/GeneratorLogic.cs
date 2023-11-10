@@ -11,7 +11,11 @@ public class GeneratorLogic : MonoBehaviour
     public float shootDownDuration = 0.5f; 
 
     private bool isMoving = false;
-    
+    public BaseScript baseScript;
+    private void Start()
+    {
+        baseScript.placementRadius += 0.1f;
+    }
     void Update()
     {
         
@@ -44,12 +48,13 @@ public class GeneratorLogic : MonoBehaviour
         for (float t = 0; t < 1; t += Time.deltaTime / shootDownDuration)
         {
             rotatingPiece.transform.position = Vector3.Lerp(endPosition, startPosition, t);
-            BaseScript.credits += 1;
+            
             //print(BaseScript.credits);
             yield return null;
         }
+        BaseScript.credits += 12;
+        print(BaseScript.credits);
 
-       
         rotatingPiece.transform.position = startPosition;
 
         isMoving = false;

@@ -1,11 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class TowerLogic : MonoBehaviour
 {
-    public BaseScript gameManager; // Assign this in the inspector
+    public BaseScript gameManager; 
     [SerializeField] float value;
+    buildManager buildMan;
+    private void Start()
+    {
+        buildMan = gameObject.GetComponent<buildManager>();
+    }
     void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -16,9 +22,10 @@ public class TowerLogic : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Vector3 pointToPlace = hit.point;
+                
                 if (CanPlaceTower(pointToPlace))
                 {
-                    PlaceTower(pointToPlace);
+                    buildMan.PlaceTurret();
                 }
                 else
                 {
@@ -28,15 +35,22 @@ public class TowerLogic : MonoBehaviour
         }
     }
 
-    bool CanPlaceTower(Vector3 position)
+    public bool CanPlaceTower(Vector3 position)
     {
         Vector3 basePosition = gameManager.building.transform.position; 
-        return Vector3.Distance(basePosition, position) <= gameManager.placementRadius * value; // Check the distance against placementRadius
+        return Vector3.Distance(basePosition, position) <= gameManager.placementRadius * value; 
     }
 
-    void PlaceTower(Vector3 position)
+   /* public void PlaceTower(Vector3 position, GameObject towerPrefab)
     {
-        print("Can Place Tower Here");
-        
-    }
+        if (CanPlaceTower(position))
+        {
+            Instantiate(towerPrefab, position, Quaternion.identity);
+            Debug.Log("Tower placed.");
+        }
+        else
+        {
+            Debug.Log("Can't place tower here!");
+        }
+    }*/
 }

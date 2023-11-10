@@ -5,7 +5,12 @@ using UnityEngine;
 public class Hologram : MonoBehaviour
 {
     public GameObject turretPrefab; // The actual turret prefab to instantiate when placing
+    public int Cost { get; private set; }
 
+    public void SetCost(int cost)
+    {
+        Cost = cost;
+    }
     void Update()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
