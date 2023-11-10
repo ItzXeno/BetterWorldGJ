@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Base
   - Generator
+  - RightHand
   layers:
   - Default
   - TransparentFX

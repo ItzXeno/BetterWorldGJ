@@ -369,7 +369,6 @@ MonoBehaviour:
   playerInProximity: 8.2
   generatorProximity: 6.4
   attackRange: 8
-  agentStoppingAttackRatio: 0.8
   canAttack: 0
   attack: 0
   hand: {fileID: 0}
@@ -1148,9 +1147,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283934032212323590}
+  - component: {fileID: 6058437496875282767}
   m_Layer: 0
   m_Name: mixamorig:RightHand
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1174,6 +1174,19 @@ Transform:
   m_Father: {fileID: 4167604663327352678}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6058437496875282767
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4605689234709626831}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.007068505, y: 0.020543624, z: 0.0026863485}
+  m_Center: {x: 1.8874273e-10, y: 0.0026565045, z: -0.000025039913}
 --- !u!1 &5724029449889654341
 GameObject:
   m_ObjectHideFlags: 0

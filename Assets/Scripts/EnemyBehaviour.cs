@@ -17,7 +17,22 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField, Range(0.0f, 10.0f)] private float playerInProximity;
     [SerializeField, Range(0.0f, 15.0f)] private float generatorProximity;    //proximity to make generator a priority
     [SerializeField, Range(0.0f, 20.0f)] private float attackRange = 5.0f;
-    [SerializeField] private bool canAttack;
+    
+    public bool Attacking
+    {
+        get
+        {
+            return attack;
+        }
+    }
+
+    public Transform CurrentTarget
+    {
+        get
+        {
+            return currentTarget;   
+        }
+    }
 
     private NavMeshAgent agent;
     private Animator animate;
