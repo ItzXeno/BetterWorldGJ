@@ -495,14 +495,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431416254}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0018, y: 0.0273, z: 0.0072}
+  m_LocalRotation: {x: -0.70630926, y: 0.033574317, z: 0.033574317, w: 0.70630926}
+  m_LocalPosition: {x: 0.0001, y: 0.0145, z: 0.0165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 542232554}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 9.283, z: -3.84}
 --- !u!4 &506713730 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7060980085825716426, guid: d8289172c2b147d45afbe958d3f75a57,
@@ -693,7 +693,7 @@ PrefabInstance:
     - target: {fileID: 7346185025263679824, guid: e7788fae14572a44bb3999c135de3128,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.11
+      value: 1.41
       objectReference: {fileID: 0}
     - target: {fileID: 7346185025263679824, guid: e7788fae14572a44bb3999c135de3128,
         type: 3}
@@ -917,19 +917,6 @@ MonoBehaviour:
   attackerHologramPrefab: {fileID: 90457175276725, guid: f79bd73ee2057a342a9930d25a2b4f65,
     type: 3}
   towerLogic: {fileID: 707517070}
---- !u!114 &707517072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 707517068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6016ab9024e87bd4fba4837f2a1c2f74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,7 +1132,7 @@ MonoBehaviour:
   reloadTime: 1.5
   recoilDistance: 0.41
   recoilSpeed: 5
-  projectileSpeed: 6.21
+  projectileSpeed: 4.8
   projectilePrefab: {fileID: 1732884118035144186, guid: 1f66fa2670f504543a7090f330830365,
     type: 3}
   gunEnd: {fileID: 431416255}

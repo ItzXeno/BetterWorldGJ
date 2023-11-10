@@ -20,9 +20,5 @@ public class TurretHealth : MonoBehaviour
     private void takeDamage(float damage)
     {
         health -= damage;
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }
