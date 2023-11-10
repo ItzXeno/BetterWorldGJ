@@ -8,7 +8,7 @@ public class EnemySpawning : MonoBehaviour
 {
     [Header("Behaviour")]
     [SerializeField, Range(0.0f, 200.0f)] private float outerSpawnRadius = 10.0f;
-    [SerializeField, Range(0.0f, 100.0f)] private float innerSpawnRadius = 5.0f;
+    /*[SerializeField, Range(0.0f, 100.0f)] */public float innerSpawnRadius = 5.0f;
     [SerializeField] private bool adjustInnerRadiusWithBase = true;
     [SerializeField, Range(0.0f, 100.0f)] private float upwardOffset = 50.0f;
     [SerializeField] private int wave;
@@ -30,7 +30,7 @@ public class EnemySpawning : MonoBehaviour
 
         if(adjustInnerRadiusWithBase)
         {
-            innerSpawnRadius = baseScript.placementRadius;
+            innerSpawnRadius = (baseScript.placementRadius * 100f) / 5.0f;
         }
     }
 
@@ -38,7 +38,7 @@ public class EnemySpawning : MonoBehaviour
     {
         if (adjustInnerRadiusWithBase)
         {
-           innerSpawnRadius = baseScript.placementRadius;
+            innerSpawnRadius = (baseScript.placementRadius * 100f) / 5.0f;
         }
     }
 
