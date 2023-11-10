@@ -8,13 +8,23 @@ public class GeneratorLogic : MonoBehaviour
     public float rotationSpeed = 90f; 
     public float moveUpDistance = 2f; 
     public float moveUpDuration = 2f; 
-    public float shootDownDuration = 0.5f; 
-
+    public float shootDownDuration = 0.5f;
+    public bool isdead = false;
     private bool isMoving = false;
     public BaseScript baseScript;
     private void Start()
     {
-        baseScript.placementRadius += 0.1f;
+        
+        baseScript.AddGeneratorRadius();
+    }
+
+    private void OnDestroy()
+    {
+        
+        if (isdead)  
+        {
+            baseScript.RemoveGeneratorRadius();
+        }
     }
     void Update()
     {
@@ -26,6 +36,8 @@ public class GeneratorLogic : MonoBehaviour
         {
             StartCoroutine(MovePiece());
         }
+
+        
     }
 
     IEnumerator MovePiece()

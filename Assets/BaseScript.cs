@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class BaseScript : MonoBehaviour
 {
-    public float placementRadius = 0.1f; // Starting radius
+    public float placementRadius = 0.1f; 
     public GameObject raidusIndicator;
     public Material terrainMaterial;
     public GameObject building;
 
-    public static int credits = 300;
+    public static int credits = 3000;
     // Method to increase the radius
     private void Update()
     {
@@ -35,5 +35,20 @@ public class BaseScript : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(building.transform.position, placementRadius * 100);
+    }
+
+    public void AddGeneratorRadius()
+    {
+        placementRadius += 0.3f;
+        UpdateRadiusVisual();
+        Debug.Log("Generator placed. New radius: " + placementRadius);
+    }
+
+    
+    public void RemoveGeneratorRadius()
+    {
+        placementRadius -= 0.3f;
+        UpdateRadiusVisual();
+        Debug.Log("Generator destroyed. New radius: " + placementRadius);
     }
 }

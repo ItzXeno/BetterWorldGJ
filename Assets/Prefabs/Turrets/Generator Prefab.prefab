@@ -50,6 +50,9 @@ MonoBehaviour:
   moveUpDistance: 1.04
   moveUpDuration: 3
   shootDownDuration: 0.75
+  isdead: 0
+  baseScript: {fileID: 127015639638319055, guid: 9b75c5741b615a04c8d7b372a6b2ed99,
+    type: 3}
 --- !u!1001 &7974965253382678993
 PrefabInstance:
   m_ObjectHideFlags: 0
