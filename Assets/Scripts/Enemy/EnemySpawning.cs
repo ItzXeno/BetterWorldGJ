@@ -9,15 +9,17 @@ public class EnemySpawning : MonoBehaviour
     [Header("Behaviour")]
     [SerializeField, Range(0.0f, 200.0f)] private float outerSpawnRadius = 10.0f;
     [SerializeField, Range(0.0f, 100.0f)] private float innerSpawnRadius = 5.0f;
+    [SerializeField] private bool adjustInnerRadiusWithBase = true;
     [SerializeField, Range(0.0f, 100.0f)] private float upwardOffset = 50.0f;
     [SerializeField] private int wave;
 
     [Header("Properties")]
     [SerializeField] private GameObject enemyPrefab;
     public Transform baseTransform;
+    public BaseScript baseScript;
 
 
-    [Header("Debugger")][Space]
+    [Space][Header("Debugger")]
     [SerializeField] private Color outerSpawnColour = Color.red;
     [SerializeField] private Color innerSpawnColour = Color.blue;
 
@@ -25,6 +27,19 @@ public class EnemySpawning : MonoBehaviour
     private void Start()
     {
         transform.position = baseTransform.position + new Vector3(0.0f, 2.0f, 0.0f);
+
+        if(adjustInnerRadiusWithBase)
+        {
+            innerSpawnRadius = baseScript.placementRadius;
+        }
+    }
+
+    private void Update()
+    {
+        if (adjustInnerRadiusWithBase)
+        {
+           innerSpawnRadius = baseScript.placementRadius;
+        }
     }
 
 

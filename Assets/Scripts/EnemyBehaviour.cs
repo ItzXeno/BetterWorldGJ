@@ -11,13 +11,12 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField] private Transform secondaryTarget;
     [SerializeField] private Transform player;
 
-    [Header("Behaviour")][Space]
+    [Space][Header("Behaviour")]
     [SerializeField] private Transform newTarget;
     [SerializeField] private Transform currentTarget;
     [SerializeField, Range(0.0f, 10.0f)] private float playerInProximity;
     [SerializeField, Range(0.0f, 15.0f)] private float generatorProximity;    //proximity to make generator a priority
     [SerializeField, Range(0.0f, 20.0f)] private float attackRange = 5.0f;
-    [SerializeField, Range(0.0f, 1.0f)] private float agentStoppingAttackRatio = 0.8f;
     [SerializeField] private bool canAttack;
 
     private NavMeshAgent agent;
@@ -57,6 +56,12 @@ public class EnemyBehaviour : MonoBehaviour
         animate.SetBool("Attacking", attack);
 
 
+        if(attack)
+        {
+            TryFacingAttackee();
+        }
+
+
         if (currentTarget == primaryTarget)
             agent.stoppingDistance = attackRange * 0.95f;
         else
@@ -72,7 +77,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if(Vector3.Distance(transform.position, player.position) < playerInProximity)
         {
-            print("Attack player");
+            //print("Attack player");
             return player;
         }
 
@@ -92,16 +97,6 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
 
-            //foreach (Collider collider in hitColliders)
-            //{
-            //    if (collider.CompareTag("Generator"))
-            //    {
-
-            //        return collider.transform;
-            //    }
-            //}
-
-            
 
             if (ClosestTarget(potentialTargets) != null)
             {
@@ -157,6 +152,14 @@ public class EnemyBehaviour : MonoBehaviour
 
 
         return closest;
+    }
+
+    private void TryFacingAttackee()
+    {
+        Vector3 directionTowards = currentTarget.position - transform.position;
+
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, directionTowards, 0.2f, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDir);
     }
 
 
