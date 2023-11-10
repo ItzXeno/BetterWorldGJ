@@ -5,48 +5,44 @@ using UnityEngine;
 
 public class EnemyAttacking : MonoBehaviour
 {
-    private EnemyBehaviour behaviour;
-    public Transform rightHand;
+    public EnemyBehaviour behaviour;
     private BoxCollider rightHandCol;
 
-    private bool attacking = false;
-    private Transform target; 
+    [SerializeField, Range(0.0f, 50.0f)] private float damage = 20.0f;
+
 
     private void Start()
     {
-        behaviour = GetComponent<EnemyBehaviour>();
-
-        if (rightHand == null)
-            rightHand = GameObject.FindGameObjectWithTag("RightHand").transform;
-
-        rightHandCol = rightHand.GetComponent<BoxCollider>();
-
-        if(rightHandCol == null)
-        {
-            rightHand.AddComponent<BoxCollider>();
-            rightHandCol = rightHand.GetComponent<BoxCollider>();
-        }
-
-        rightHandCol.isTrigger = true;
+        //rightHandCol = GetComponent<BoxCollider>();
     }
 
 
-    private void OnTriggerEnter(Collider other)
+    public void DealDamage()
     {
-        if(behaviour.Attacking)
+        if (behaviour.Attacking)
         {
-            if (other.CompareTag("Generator") || other.CompareTag("Base"))
+
+            if(behaviour.CurrentTarget)
             {
-                if(other.transform == behaviour.CurrentTarget)
+                //TurretHealth health = behaviour.CurrentTarget.GetComponent<TurretHealth>();
+                if(TryGetComponent<TurretHealth>(out TurretHealth health))
                 {
-                    GameObject targetObj = other.gameObject;
-                    
+                    health.takeDamage(damage);
+                }
+                else if(behaviour.CurrentTarget.parent.TryGetComponent<Damagable>(out Damagable damagable))
+                {
+                    damagable.ApplyDamage(damage);
+                }
+                else
+                {
+                    Debug.Log("Target doesn't have the TurretHealth  OR the Damagable");
                 }
             }
+
         }
-
-
     }
+
+
 
 
 

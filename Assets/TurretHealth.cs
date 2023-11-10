@@ -17,7 +17,7 @@ public class TurretHealth : MonoBehaviour
         
     }
 
-    private void takeDamage(float damage)
+    public void takeDamage(float damage)
     {
         health -= damage;
     }

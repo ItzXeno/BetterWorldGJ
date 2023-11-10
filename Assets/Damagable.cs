@@ -5,7 +5,7 @@ using UnityEngine;
 public class Damagable : MonoBehaviour
 {
     [SerializeField] private float _initialHealth;
-    private float _currentHealth;
+    public float _currentHealth;
     // Start is called before the first frame update
     void Start()
     {
