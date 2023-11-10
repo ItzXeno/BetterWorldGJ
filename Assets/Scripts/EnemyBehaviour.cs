@@ -31,6 +31,10 @@ public class EnemyBehaviour : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animate = GetComponent<Animator>();
         //hand.SetActive(false); 
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        primaryTarget = GameObject.FindGameObjectWithTag("Base").transform;
+        agent.SetDestination(primaryTarget.position);
     }
 
 
