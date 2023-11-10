@@ -60,7 +60,7 @@ public class gun : MonoBehaviour
         currentAmmo--; // Deduct an ammo count every time we shoot
 
         // Instantiate the projectile at the gunEnd
-        GameObject projectile = Instantiate(projectilePrefab, gunEnd.position, gunEnd.rotation);
+        GameObject projectile = Instantiate(projectilePrefab, gunEnd.position, Quaternion.identity);
         Rigidbody projectileRb = projectile.GetComponent<Rigidbody>();
 
         if (projectileRb != null)
@@ -75,14 +75,14 @@ public class gun : MonoBehaviour
 
     IEnumerator Recoil()
     {
-        // Move the gun back
+        
         while (Vector3.Distance(gunEnd.localPosition, originalPosition + Vector3.back * recoilDistance) > 0.01f)
         {
             gunEnd.localPosition = Vector3.Lerp(gunEnd.localPosition, originalPosition + Vector3.back * recoilDistance, recoilSpeed * Time.deltaTime);
             yield return null;
         }
 
-        // Return the gun to its original position
+        
         while (Vector3.Distance(gunEnd.localPosition, originalPosition) > 0.01f)
         {
             gunEnd.localPosition = Vector3.Lerp(gunEnd.localPosition, originalPosition, recoilSpeed * Time.deltaTime);
