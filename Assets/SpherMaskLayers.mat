@@ -71,7 +71,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Mask_Layer:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: d5a46b20f7fe248209db917d1e6be190, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -84,6 +84,18 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleReflectedCubemap_2ee29b9f45c04787a4d8da22aa45c15a_Cube_1:
+        m_Texture: {fileID: 8900000, guid: 12843004491e4ec408c89aa48fdf161a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleReflectedCubemap_608937fbdb3f43229ef24165ded0f5cb_Cube_1:
+        m_Texture: {fileID: 8900000, guid: 14e50fcbc1a2ff842ba76151cc0d64d7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleReflectedCubemap_c37ab724ee5244dd99a20078963ec894_Cube_1:
+        m_Texture: {fileID: 8900000, guid: 12843004491e4ec408c89aa48fdf161a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_c886177b7f6740d2a1117fb22b510c0b_Texture_1:
