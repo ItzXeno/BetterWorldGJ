@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Base
   - Generator
-  - Enemy
+  - RightHand
   layers:
   - Default
   - TransparentFX
