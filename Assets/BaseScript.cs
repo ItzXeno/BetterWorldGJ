@@ -19,6 +19,7 @@ public class BaseScript : MonoBehaviour
     public void IncreasePlacementRadius(float amount)
     {
         placementRadius += amount;
+        print(placementRadius);
         UpdateRadiusVisual();
 
     }
@@ -27,8 +28,8 @@ public class BaseScript : MonoBehaviour
 
     private void UpdateRadiusVisual()
     {
-       raidusIndicator.transform.localScale = new Vector3(placementRadius, placementRadius / 100, placementRadius);
-        terrainMaterial.SetFloat("_Radius", placementRadius/5);
+         raidusIndicator.transform.localScale = new Vector3(placementRadius, placementRadius / 100, placementRadius);
+         terrainMaterial.SetFloat("_Radius", placementRadius/5);
     }
 
     private void OnDrawGizmos()
@@ -39,8 +40,8 @@ public class BaseScript : MonoBehaviour
 
     public void AddGeneratorRadius()
     {
-        placementRadius += 0.3f;
-        UpdateRadiusVisual();
+        placementRadius += 0.01f;
+        //UpdateRadiusVisual();
         Debug.Log("Generator placed. New radius: " + placementRadius);
     }
 
