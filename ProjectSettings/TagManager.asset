@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Generator
+  - Base
+  - Ground
   layers:
   - Default
   - TransparentFX

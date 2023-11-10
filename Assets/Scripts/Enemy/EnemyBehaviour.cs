@@ -31,16 +31,30 @@ public class EnemyBehaviour : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animate = GetComponent<Animator>();
         //hand.SetActive(false); 
+
+
+        //New New New 
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        primaryTarget = GameObject.FindGameObjectWithTag("Base").transform;
+        agent.SetDestination(primaryTarget.position);
+
     }
 
 
     private void Update()
     {
+        print(agent.destination);
 
         if(!attack)
         {
             newTarget = UpdateTarget();
+            //if(currentTarget == newTarget && IsGrounded())
+            //{
+            //    ChangeTarget(newTarget);    
+            //}
         }
+
+        
 
         if (currentTarget != newTarget)
         {
@@ -48,6 +62,11 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         attack = CanAttack();
+
+        if(attack)
+        {
+            TryFacingAttackee();
+        }
 
         animate.SetBool("Attack", attack);
 
@@ -131,6 +150,15 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
 
+    //NEW NEW NEW 
+    private void TryFacingAttackee()
+    {
+        Vector3 directionTowards = currentTarget.position - transform.position;
+
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, directionTowards, 0.4f, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDir);
+    }
+
     private Transform ClosestTarget(List<Transform> value)
     {
         //if(value.Count < 0)
@@ -149,7 +177,7 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
 
-        print(closest);
+        //print(closest);
 
         return closest;
     }

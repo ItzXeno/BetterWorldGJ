@@ -1,24 +1,25 @@
+using System.Buffers.Text;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemySpawning : MonoBehaviour
 {
     [Header("Behaviour")]
     [SerializeField, Range(0.0f, 200.0f)] private float outerSpawnRadius = 10.0f;
-    [SerializeField, Range(0.0f, 100.0f)] private float inerSpawnRadius = 5.0f;
+    [SerializeField, Range(0.0f, 100.0f)] private float innerSpawnRadius = 5.0f;
+    [SerializeField, Range(0.0f, 100.0f)] private float upwardOffset = 50.0f;
     [SerializeField] private int wave;
 
     [Header("Properties")]
     [SerializeField] private GameObject enemyPrefab;
     public Transform baseTransform;
 
-    private float timer = 0.0f; 
-
 
     [Header("Debugger")][Space]
     [SerializeField] private Color outerSpawnColour = Color.red;
-    [SerializeField] private Color inerSpawnColour = Color.blue;
+    [SerializeField] private Color innerSpawnColour = Color.blue;
 
 
     private void Start()
@@ -26,23 +27,11 @@ public class EnemySpawning : MonoBehaviour
         transform.position = baseTransform.position + new Vector3(0.0f, 2.0f, 0.0f);
     }
 
-    private void Update()
+
+    public void Spawn()
     {
-        timer += Time.deltaTime;
-
-        if(timer > 3.0f)
-        {
-            Spawn();
-            timer = 0.0f;
-        }
-
-
-    }
-
-    private void Spawn()
-    {
-        float locationOffsetX = Random.Range(inerSpawnRadius, outerSpawnRadius);
-        float locationOffsetZ = Random.Range(inerSpawnRadius, outerSpawnRadius);
+        float locationOffsetX = Random.Range(innerSpawnRadius, outerSpawnRadius);
+        float locationOffsetZ = Random.Range(innerSpawnRadius, outerSpawnRadius);
 
         print("X: " + locationOffsetZ + ", Z: " + locationOffsetX);
 
@@ -82,7 +71,16 @@ public class EnemySpawning : MonoBehaviour
             spawnLocation = newPosition;
         }
 
+        //modify the upward offset
+        spawnLocation = new Vector3(spawnLocation.x, spawnLocation.y + upwardOffset, spawnLocation.z);
+
         GameObject spawnEnemy = Instantiate(enemyPrefab, spawnLocation, Quaternion.identity);
+
+        NavMeshHit hit;
+        if (NavMesh.SamplePosition(spawnLocation, out hit, 10.0f, NavMesh.AllAreas))
+        {
+            spawnEnemy.transform.position = hit.position;
+        }
         spawnEnemy.transform.parent = transform;
     }
 
@@ -93,7 +91,9 @@ public class EnemySpawning : MonoBehaviour
         Gizmos.color = outerSpawnColour;    
         Gizmos.DrawWireSphere(transform.position, outerSpawnRadius);
 
-        Gizmos.color = inerSpawnColour;
-        Gizmos.DrawWireSphere(transform.position, inerSpawnRadius);
+        Gizmos.color = innerSpawnColour;
+        Gizmos.DrawWireSphere(transform.position, innerSpawnRadius);
+
+        Gizmos.DrawLine(transform.position, transform.position + new Vector3(0.0f, upwardOffset, 0.0f));
     }
 }
